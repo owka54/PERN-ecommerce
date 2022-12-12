@@ -1,1 +1,1 @@
-![Database diagram](https://github.com/owka54/pern-ecommerce/blob/api/resources/db.png)
+![Database diagram](https://github.com/owka54/PERN-ecommerce/blob/master/api/resources/db.png)
