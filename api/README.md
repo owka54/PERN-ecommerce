@@ -75,7 +75,7 @@ DELETE request
 req.body with cartId
 
 - /checkout
-** Haven't added yet **
+**Haven't added yet**
 
 * /orders
 
