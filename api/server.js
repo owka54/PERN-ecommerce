@@ -5,6 +5,7 @@ const usersRoute = require("./routes/user/routes");
 const authRoute = require("./routes/auth/routes");
 const productRoute = require("./routes/product/routes");
 const cartRoute = require("./routes/cart/routes");
+const orderRoute = require("./routes/order/routes");
 
 app.use(express.json());
 
@@ -23,6 +24,9 @@ app.use('/products', productRoute);
 
 // cart
 app.use('/carts', cartRoute);
+
+// order
+app.use('/orders', orderRoute);
 
 
 app.listen(PORT, () => console.log(`server listening on port: ${PORT}`));

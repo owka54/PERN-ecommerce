@@ -58,6 +58,20 @@ const deleteItemFromCart = async (req, res) => {
     }
 }
 
+const updateItem = async (req, res) => {
+    try {
+        const { cartItemId } = req.params;
+        const { quantity } = req.body;
+
+        const response = await pool.query(queries.updateItem, [quantity, cartItemId]);
+
+        res.status(200).send('item updated');
+
+    } catch (err) {
+        console.error(err.message);
+    }
+}
+
 // const updateCart = async (req, res) => {
 //     try {
 //         const { id } = req.body; // req.user ???
@@ -76,5 +90,6 @@ module.exports = {
     getCart,
     addItemToCart,
     deleteItemFromCart,
+    updateItem,
     // updateCart,
 }
