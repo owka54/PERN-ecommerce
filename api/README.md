@@ -74,6 +74,9 @@ Delete an item from the cart
 DELETE request
 req.body with cartId
 
+- /checkout
+** Haven't added yet **
+
 * /orders
 
 Get all orders
