@@ -1,0 +1,1 @@
+![Database diagram](https://github.com/owka54/pern-ecommerce/blob/api/resources/db.png)
