@@ -6,7 +6,7 @@
 
 http://localhost:5000/
 
-1. /users
+* /users
 Get a user by id
 - /:userId
 GET request
@@ -19,7 +19,7 @@ requires req.body with (
     lastName
 )
 
-2. /auth
+* /auth
 Register a new user
 - /register
 POST request
@@ -38,7 +38,7 @@ requires req.body with (
     password
 )
 
-3. /products
+* /products
 
 Get all products
 - /
@@ -46,7 +46,7 @@ Get all products
 Get product by id
 - /:productId
 
-4. /carts
+* /carts
 
 Create a cart
 - /mine
@@ -74,7 +74,7 @@ Delete an item from the cart
 DELETE request
 req.body with cartId
 
-5. /orders
+* /orders
 
 Get all orders
 - /
