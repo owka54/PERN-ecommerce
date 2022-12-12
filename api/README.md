@@ -2,11 +2,11 @@
 
 ![Database diagram](https://github.com/owka54/PERN-ecommerce/blob/master/api/resources/db.png)
 
-## Routes:
+# Routes:
 
 http://localhost:5000/
 
-* /users
+## /users
 Get a user by id
 - /:userId
 GET request
@@ -19,7 +19,7 @@ requires req.body with (
     lastName
 )
 
-* /auth
+## /auth
 Register a new user
 - /register
 POST request
@@ -38,7 +38,7 @@ requires req.body with (
     password
 )
 
-* /products
+## /products
 
 Get all products
 - /
@@ -46,7 +46,7 @@ Get all products
 Get product by id
 - /:productId
 
-* /carts
+## /carts
 
 Create a cart
 - /mine
