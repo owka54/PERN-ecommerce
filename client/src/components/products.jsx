@@ -1,19 +1,25 @@
 import { useEffect } from "react";
 import { useState } from "react";
 
-export default function Products() {
+export default function Products({search}) {
 
     const [products, setProducts] = useState([]);
 
     const getProducts = async () => {
-        const response = await fetch("http://localhost:5000/products");
+        let url;
+        if (search === '' || search === '%%') {
+            url = "http://localhost:5000/products";
+        } else {
+            url = `http://localhost:5000/products?search=${search}`;
+        }
+        const response = await fetch(url);
         const data = await response.json();
         setProducts(data);
     }
 
     useEffect(() => {
         getProducts();
-    }, []);
+    }, [search]);
 
     return (
         <div id="products">

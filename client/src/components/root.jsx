@@ -8,7 +8,7 @@ export default function Root({isAuth}) {
     <div className="Root">
       <Header isAuth={isAuth}/>
       <SearchBar />
-      <Products />
+      
     </div>
   )
 }

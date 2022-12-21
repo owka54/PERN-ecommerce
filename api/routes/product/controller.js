@@ -3,7 +3,15 @@ const queries = require("./queries");
 
 const getProducts = async (req, res) => {
     try {
-        const data = await pool.query(queries.getProducts);
+        const search = req.query.search;
+        let data;
+        if (search) {
+            const like = '%' + search.toLowerCase() + '%';
+            data = await pool.query(queries.getProductsWithSearch, [like]);
+        } else {
+            data = await pool.query(queries.getProducts);
+        }
+        
         res.status(200).send(data.rows);
     } catch (err) {
         console.error(err.message);
