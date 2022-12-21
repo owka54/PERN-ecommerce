@@ -34,6 +34,21 @@ h1:hover {
   color: #3D52D5;
 }
 
+/* Searchbar Component */
+
+#searchbar {
+  text-align: center;
+}
+#search {
+  width: 25%;
+  height: 1.5rem;
+  margin: 1rem;
+  border-radius: .5rem;
+}
+#search-btn {
+  height: 1.5rem;
+}
+
 
 /* Products Component */
 
@@ -54,6 +69,11 @@ h1:hover {
   text-align: center;
   margin-bottom: 1rem;
   min-width: 10rem;
+  transition: 0.3s;
+}
+.product:hover {
+  background-color: #B4C5E4;
+  cursor: pointer;
 }
 h3 {
   font-family: 'Courier New', Courier, monospace;
@@ -62,11 +82,11 @@ h3 {
   color: #3C3744;
   margin: 1rem;
 }
-p {
+p, i {
   color: #3C3744;
   margin: 1rem;
 }
-button {
+#products button {
   margin: 1rem;
 }
 .product img {
