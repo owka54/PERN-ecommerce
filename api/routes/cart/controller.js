@@ -72,18 +72,32 @@ const updateItem = async (req, res) => {
     }
 }
 
-// const updateCart = async (req, res) => {
-//     try {
-//         const { id } = req.body; // req.user ???
+const checkout = async (req, res) => {
+    try {
+        const { id } = req.body // req.user ???
+        const { cartId, paymentInfo } = req.body;
 
-//         const response = await pool.query(queries.updateCart, [id]);
-//         const cart = resposne.rows[0];
+        console.log(id, cartId, paymentInfo);
 
-//         res.status(200).send(cart);
-//     } catch (err) {
-//         console.error(err.message);
-//     }
-// }
+        const response = async (cartId, id, paymentInfo) => {
+            // const stripe = require('stripe')('sk_test_FOY6txFJqPQvJJQxJ8jpeLYQ');
+
+            // load cart items
+            const cartItems = await pool.query(queries.getCart, [id]);
+            res.send(cartItems);
+
+            // generate total price from cart items
+            const total = cartItems.reduce((total, item) => {
+                return total += Number(item.price);
+            }, 0);
+
+            console.log(total);
+        }
+    res.send(response);
+    } catch (err) {
+        console.error(err.message);        
+    }
+}
 
 module.exports = {
     createCart,
@@ -91,5 +105,5 @@ module.exports = {
     addItemToCart,
     deleteItemFromCart,
     updateItem,
-    // updateCart,
+    checkout,
 }
