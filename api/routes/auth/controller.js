@@ -45,12 +45,13 @@ const register = async (req, res) => {
 const login = async (req, res) => {
     // destructure
     const { email, password } = req.body;
+    console.log(email, password);
     // check if user exists
     const data = await pool.query(queries.doesUserExist, [email]);
     const user = data.rows;
 
     if (user.length === 0) {
-        return res.status(400).send('User with that email does not exist. Sign up now');
+        return res.status(400).json({error: 'User with that email does not exist. Sign up now'});
     };
     // check if input password matches database password
     bcrypt.compare(password, user[0].password, (err, result) => {
@@ -67,7 +68,8 @@ const login = async (req, res) => {
             );
             res.status(200).json({
                 message: "User signed in",
-                token: token
+                token: token,
+                user_id: user[0].id
             });
         } else {
             if (result != true) {

@@ -93,3 +93,30 @@ p, i {
   width: 75%;
   padding: .5rem;
 }
+
+/* Account Component */
+
+#account {
+  text-align: center;
+}
+
+/* Login Component */
+#login {
+  text-align: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 1rem auto;
+  align-items: center;
+  border: 1px solid black;
+}
+
+form input {
+  margin: 1rem;
+  width: 50%;
+}
+#error {
+  color: red;
+}
