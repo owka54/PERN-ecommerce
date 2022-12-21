@@ -7,12 +7,13 @@ const register = async (req, res) => {
     try {
         // destructure
         const { firstName, lastName, email, password } = req.body;
+        console.log(firstName, lastName, email, password);
 
         // check if user exists
         const user = await pool.query(queries.doesUserExist, [email]);
 
         if (user.rows[0]) {
-            return res.send('User with that email already exists');
+            return res.json({error: 'User with that email already exists'});
         };
 
         // hash password
@@ -26,7 +27,7 @@ const register = async (req, res) => {
                     error: "Database error"
                 });
             } else {
-                res.status(200).send({ message: "User added to database" });
+                res.status(200).json({ message: "User added to database" });
             }
         });
 

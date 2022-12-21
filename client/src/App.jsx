@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Account from './components/account'
 import { useEffect, useState } from 'react'
 import Login from './components/login'
+import Register from './components/register'
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
           <Route exact path='/' element={<Root isAuth={isAuth}/>} />
           <Route exact path='/my-account' element={isAuth === true ? <Account isAuth={isAuth}/> : <Login setAuth={setAuth}/>} />
           <Route exact path='login' element={isAuth ? <Account /> : <Login setAuth={setAuth}/>} />
+          <Route exact path='register' element={isAuth ? <Account /> : <Register />} />
         </Routes>
       </Router>
     </div>

@@ -100,9 +100,10 @@ p, i {
   text-align: center;
 }
 
-/* Login Component */
-#login {
+/* Login & Register Components */
+#login, #register {
   text-align: center;
+  background-color: #3C3744;
 }
 form {
   display: flex;
@@ -111,8 +112,8 @@ form {
   margin: 1rem auto;
   align-items: center;
   border: 1px solid black;
+  background-color: #B4C5E4;
 }
-
 form input {
   margin: 1rem;
   width: 50%;
