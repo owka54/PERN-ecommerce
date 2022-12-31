@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import AddToCart from "./addToCart";
 
 export default function Products({search}) {
 
@@ -26,7 +27,7 @@ export default function Products({search}) {
 
             <div id="products-list">
                 <div className="product" >
-                    <img src="../public/watch.jpg" alt="Product Image"/>
+                    <img src="watch.jpg" alt="Product Image"/>
                     <h3>Product Name</h3>
                     <p>Nice all black watch, very stylish...</p>
                     <i>£150</i>
@@ -39,7 +40,7 @@ export default function Products({search}) {
                             <h3>{product.name}</h3>
                             <p>{product.description}</p>
                             <i>{product.price}</i>
-                            <button>Add to cart</button>
+                            <AddToCart productId={product.id} />
                         </div>
                 )})}
                 

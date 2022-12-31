@@ -10,7 +10,7 @@ export default function Header({isAuth}) {
                         {isAuth ? <a href="my-account" className="nav-link">Account</a> : <a href="login" className="nav-link">Login</a>}
                     </li>
                     <li>
-                        <a href="#" className="nav-link">Cart</a>
+                        <a href="cart" className="nav-link">Cart</a>
                     </li>
                 </ul>
             </div>

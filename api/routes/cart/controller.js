@@ -20,7 +20,7 @@ const createCart = async (req, res) => {
 
 const getCart = async (req, res) => {
     try {
-        const { id } = req.body; // req.user ???
+        const { id } = req.params; // req.user ???
 
         const response = await pool.query(queries.getCart, [id]);
         const cart = response.rows[0];
@@ -32,10 +32,25 @@ const getCart = async (req, res) => {
     }
 }
 
+const getCartItems = async (req, res) => {
+    try {
+        const { cartId } = req.params; // req.user ???
+
+        const response = await pool.query(queries.getCartItems, [cartId]);
+        const cartItems = response.rows;
+
+        res.status(200).send(cartItems);
+    } catch (err) {
+        console.error(err.message);
+    }
+}
+
 const addItemToCart = async (req, res) => {
+    console.log(req.body);
     try {
         const { id } = req.body; // req.user ???
         const { productId, quantity } = req.body;
+        
         
         const response = await pool.query(queries.addItemToCart, [id, productId, quantity]);
 
@@ -102,6 +117,7 @@ const checkout = async (req, res) => {
 module.exports = {
     createCart,
     getCart,
+    getCartItems,
     addItemToCart,
     deleteItemFromCart,
     updateItem,

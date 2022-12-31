@@ -7,6 +7,7 @@ import Account from './components/account'
 import { useEffect, useState } from 'react'
 import Login from './components/login'
 import Register from './components/register'
+import Cart from './components/cart'
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
           <Route exact path='/my-account' element={isAuth === true ? <Account isAuth={isAuth}/> : <Login setAuth={setAuth}/>} />
           <Route exact path='login' element={isAuth ? <Account /> : <Login setAuth={setAuth}/>} />
           <Route exact path='register' element={isAuth ? <Account /> : <Register />} />
+          <Route exact path='cart' element={<Cart />} />
         </Routes>
       </Router>
     </div>

@@ -121,3 +121,18 @@ form input {
 #error {
   color: red;
 }
+
+/* Cart Component */
+
+#cart {
+  text-align: center;
+}
+
+.cartItem {
+  border: 1px solid black;
+  width: 60%;
+  margin: 1rem auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+}

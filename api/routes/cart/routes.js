@@ -3,7 +3,8 @@ const controller = require("./controller");
 const router = Router();
 
 router.post('/mine', controller.createCart);
-router.get('/mine', controller.getCart);
+router.get('/mine/:id', controller.getCart);
+router.get('/items/:cartId', controller.getCartItems);
 // router.put('/mine', controller.updateCart);
 
 router.post('/mine/items', controller.addItemToCart); // add item
