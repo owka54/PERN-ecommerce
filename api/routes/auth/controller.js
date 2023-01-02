@@ -7,7 +7,6 @@ const register = async (req, res) => {
     try {
         // destructure
         const { firstName, lastName, email, password } = req.body;
-        console.log(firstName, lastName, email, password);
 
         // check if user exists
         const user = await pool.query(queries.doesUserExist, [email]);
@@ -46,7 +45,6 @@ const register = async (req, res) => {
 const login = async (req, res) => {
     // destructure
     const { email, password } = req.body;
-    console.log(email, password);
     // check if user exists
     const data = await pool.query(queries.doesUserExist, [email]);
     const user = data.rows;

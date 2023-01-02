@@ -45,6 +45,19 @@ const getCartItems = async (req, res) => {
     }
 }
 
+const getCartItemById = async (req, res) => {
+    try {
+        const { cartId, productId } = req.params;
+
+        const response = await pool.query(queries.getCartItemById, [cartId, productId]);
+        const cartItem = response.rows;
+
+        res.status(200).send(cartItem);
+    } catch (err) {
+        console.error(err.message);
+    }
+}
+
 const addItemToCart = async (req, res) => {
     console.log(req.body);
     try {
@@ -76,9 +89,9 @@ const deleteItemFromCart = async (req, res) => {
 const updateItem = async (req, res) => {
     try {
         const { cartItemId } = req.params;
-        const { quantity } = req.body;
+        const { quantity, cartId } = req.body;
 
-        const response = await pool.query(queries.updateItem, [quantity, cartItemId]);
+        const response = await pool.query(queries.updateItem, [quantity, cartItemId, cartId]);
 
         res.status(200).send('item updated');
 
@@ -118,6 +131,7 @@ module.exports = {
     createCart,
     getCart,
     getCartItems,
+    getCartItemById,
     addItemToCart,
     deleteItemFromCart,
     updateItem,
