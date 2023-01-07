@@ -1,7 +1,7 @@
 export default function Header({isAuth}) {
     return (
         <div id="header">
-            <h1>PERN Store</h1>
+            <h1><a href="/">PERN Store</a></h1>
 
             <div id="right-header">
                 <ul className="nav-menu">

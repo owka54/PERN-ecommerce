@@ -26,13 +26,16 @@ export default function Products({search}) {
         <div id="products">
 
             <div id="products-list">
-                <div className="product" >
+                {/* Example product */}
+
+                {/* <div className="product" >
                     <img src="watch.jpg" alt="Product Image"/>
                     <h3>Product Name</h3>
                     <p>Nice all black watch, very stylish...</p>
                     <i>£150</i>
                     <button>Add to cart</button>
-                </div>
+                </div> */}
+
                 {products.slice(0).map((product, idx) => {
                     return (
                         <div className="product" key={idx}>
