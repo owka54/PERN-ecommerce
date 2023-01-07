@@ -4,8 +4,8 @@ export default function Cart() {
 
     const [cartId, setCartId] = useState([]);
     const [cartItems, setCartItems] = useState([]);
-    const [products, setProducts] = useState([])
-
+    const [products, setProducts] = useState([]);
+    
     const getProduct = async (id) => {
         const response = await fetch(`http://localhost:5000/products/${id}`);
         const data = await response.json();
@@ -20,41 +20,46 @@ export default function Cart() {
     }
 
     const getCartItems = async () => {
+        console.log(cartId.id);
         const response = await fetch(`http://localhost:5000/carts/items/${cartId.id}`);
         const data = await response.json();
-        setCartItems(data);
+        console.log(data);
+        setCartItems(data)
     }
 
     useEffect(() => {
         getCartId();
     }, [])
-
+    
     useEffect(() => {
         getCartItems();
-    }, [cartId])
+    }, [cartId]);
 
     useEffect(() => {
-        console.log(cartItems)
-        cartItems.map((item) => {
-            getProduct(item.id);
+        console.log(cartItems);
+        cartItems.map(async (item, idx) => {
+            console.log(item);
+            const product = await getProduct(item.id);
+            console.log(product);
+            setProducts(products => [...products, product]);
         })
-    }, [cartItems])
-
+    }, [cartItems]);
+    
     return (
         <div id="cart">
             <h1>Cart</h1>
 
-            {products.map((item, idx) => {
+            {products ? products.map((item, idx) => {
                 console.log(products);
-                let a = cartItems.find(cartItem => cartItem.id == item.id)
+                let product = cartItems.find(cartItem => cartItem.id == item.id)
                 return (
                     <div className="cartItem" key={idx}>
-                        <p>x{a.quantity}</p>
+                        <p>x{product.quantity}</p>
                         <h3>{item.name}</h3>
                         <button>Remove</button>
                     </div>
                 )
-            })}
+            }) : "dslfhjgksdjfg"}
             <button>Checkout</button>
         </div>
     );
