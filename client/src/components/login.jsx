@@ -39,8 +39,8 @@ export default function Login({setAuth}) {
             <h1>Login</h1>
 
             <form onSubmit={onFormSubmit}>
-                <input type={"text"} placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                <input type={"password"} placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <input type={"text"} placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <input type={"password"} placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <button type={"submit"}>Login</button>
                 <p id="error"></p>
                 <p>Haven't got an account? <a href="register">Register Now</a></p>

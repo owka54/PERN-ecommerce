@@ -119,9 +119,11 @@ h2 {
   background-color: #B4C5E4;
   color: #3C3744;
   border-radius: 1rem;
+  transition: 0.3s;
 }
 #account #info button:hover {
   background-color: #3D52D5;
+  cursor: pointer;
 }
 
 #account #orders {
@@ -132,6 +134,20 @@ h2 {
 #login, #register {
   text-align: center;
   background-color: #3C3744;
+  height: 100vh;
+}
+#login button, #register button {
+  width: 8rem;
+  height: 2.5rem;
+  background-color: #3D52D5;
+  color: #FBFFF1;
+  border-radius: 1rem;
+  transition: 0.3s;
+}
+#login button:hover, #register button:hover {
+  background-color: #FBFFF1;
+  color: #3C3744;
+  cursor: pointer;
 }
 form {
   display: flex;
@@ -140,7 +156,9 @@ form {
   margin: 1rem auto;
   align-items: center;
   border: 1px solid black;
+  border-radius: 1rem;
   background-color: #B4C5E4;
+  box-shadow: 0 0 .2rem .2rem #3D52D5;
 }
 form input {
   margin: 1rem;
