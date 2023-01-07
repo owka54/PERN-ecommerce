@@ -36,7 +36,7 @@ export default function Products({search}) {
                     <button>Add to cart</button>
                 </div> */}
 
-                {products.slice(0).map((product, idx) => {
+                {products[0] ? products.slice(0).map((product, idx) => {
                     return (
                         <div className="product" key={idx}>
                             <img src={product.img_src} alt="Product Image"/>
@@ -45,7 +45,7 @@ export default function Products({search}) {
                             <i>{product.price}</i>
                             <AddToCart productId={product.id} />
                         </div>
-                )})}
+                )}) : "No products found. Check your spelling or edit your search to view available items."}
                 
             </div>
         </div>

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import Header from "./header";
 
 export default function Account() {
 
