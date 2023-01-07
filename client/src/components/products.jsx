@@ -45,7 +45,7 @@ export default function Products({search}) {
                             <i>{product.price}</i>
                             <AddToCart productId={product.id} />
                         </div>
-                )}) : "No products found. Check your spelling or edit your search to view available items."}
+                )}) : "No products found."}
                 
             </div>
         </div>
