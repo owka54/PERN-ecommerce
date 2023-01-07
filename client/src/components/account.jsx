@@ -4,6 +4,7 @@ import { useState } from "react";
 export default function Account() {
 
     const [user, setUser] = useState();
+    const [orders, setOrders] = useState();
 
     const user_id = localStorage.getItem('user_id');
 
@@ -23,16 +24,18 @@ export default function Account() {
             <div id="info">
                 <h2>Name: {user ? user.firstname : "Name"}</h2>
                 <h3>Email: {user ? user.email : "email"}</h3>
-            </div>
 
-            <button onClick={() => {
+                <button onClick={() => {
                 localStorage.removeItem('token');
                 localStorage.removeItem('user_id');
                 window.location = '/';
-            }}>Sign Out</button>
+                }}>Sign Out</button>
+            </div>
 
+            
+            <h2>My Orders</h2>
             <div id="orders">
-                <p>orders</p>
+                {orders ? "orders" : "No available orders"}
             </div>
         </div>
     );

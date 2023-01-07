@@ -99,6 +99,34 @@ p, i {
 #account {
   text-align: center;
 }
+#account #info {
+  width: 70%;
+  margin: 1rem auto;
+  padding: 1rem;
+  border: 1px solid black;
+  margin-bottom: 4rem;
+}
+h2 {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3C3744;
+  margin: 1rem;
+}
+#account #info button {
+  width: 8rem;
+  height: 2.5rem;
+  background-color: #B4C5E4;
+  color: #3C3744;
+  border-radius: 1rem;
+}
+#account #info button:hover {
+  background-color: #3D52D5;
+}
+
+#account #orders {
+  margin-top: 2rem;
+}
 
 /* Login & Register Components */
 #login, #register {
