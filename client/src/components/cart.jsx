@@ -43,7 +43,7 @@ export default function Cart() {
         <div id="cart">
             <h1>Cart</h1>
 
-            {products ? products.map((item, idx) => {
+            {products[0] ? products.map((item, idx) => {
                 console.log(products);
                 console.log(idx);
                 let product = cartItems.find(cartItem => cartItem.productid == item.id)
@@ -54,7 +54,7 @@ export default function Cart() {
                         <RemoveFromCart id={item.id} />
                     </div>
                 )
-            }) : "dslfhjgksdjfg"}
+            }) : "No items in cart"}<br />
             <button>Checkout</button>
         </div>
     );
