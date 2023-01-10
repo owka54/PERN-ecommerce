@@ -10,7 +10,7 @@ router.get('/items/:cartId/:productId', controller.getCartItemById);
 
 router.post('/mine/items', controller.addItemToCart); // add item
 router.put('/mine/items/:cartItemId', controller.updateItem); // change item quantity
-// router.delete('/mine/items/:cartItemId', controller.deleteItemFromCart); // remove item
+router.delete('/mine/items/:cartItemId', controller.deleteItemFromCart); // remove item
 router.post('/mine/checkout', controller.checkout);
 
 

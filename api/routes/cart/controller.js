@@ -79,13 +79,16 @@ const addItemToCart = async (req, res) => {
 const deleteItemFromCart = async (req, res) => {
     try {
         const { cartItemId } = req.params
+        console.log(cartItemId);
         const { cartId } = req.body;
+
+        console.log(cartId);
 
         const response = await pool.query(queries.deleteItemFromCart, [cartId, cartItemId]);
 
         res.status(200).send('Item removed from cart');
     } catch (err) {
-        console.error(err.message);
+        console.error("deletion error: " + err.message);
     }
 }
 

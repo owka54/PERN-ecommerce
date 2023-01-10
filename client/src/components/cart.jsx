@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import RemoveFromCart from "./removeFromCart";
 
 export default function Cart() {
 
@@ -50,7 +51,7 @@ export default function Cart() {
                     <div className="cartItem" key={idx}>
                         <p>x{product.quantity}</p>
                         <h3>{item.name}</h3>
-                        <button>Remove</button>
+                        <RemoveFromCart id={item.id} />
                     </div>
                 )
             }) : "dslfhjgksdjfg"}

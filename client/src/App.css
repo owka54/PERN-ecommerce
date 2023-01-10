@@ -185,4 +185,14 @@ form input {
   padding: 1rem;
   display: flex;
   justify-content: space-around;
+  align-items: center;
+}
+.bin-icon {
+  height: 2.75rem;
+}
+.bin-btn {
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: inherit;
 }
