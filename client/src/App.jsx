@@ -29,6 +29,24 @@ function App() {
     isAuthenticated();
   })
 
+  const getCartId = async () => {
+    const user_id = localStorage.getItem('user_id');
+    if (user_id != null) {
+      const response = await fetch(`http://localhost:5000/carts/mine/${user_id}`);
+      const data = await response.json();
+      localStorage.setItem("cartId", data.id);
+      console.log(localStorage.getItem("cartId"));
+    } else {
+      console.log("no user id");
+    }
+    
+  }
+  useEffect(() => {
+    getCartId();
+  }, []);
+
+  
+
   return (
     <div className="App">
       <Router>

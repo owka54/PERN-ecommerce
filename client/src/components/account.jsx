@@ -29,6 +29,7 @@ export default function Account() {
                 <button onClick={() => {
                 localStorage.removeItem('token');
                 localStorage.removeItem('user_id');
+                localStorage.removeItem('cartId');
                 window.location = '/';
                 }}>Sign Out</button>
             </div>

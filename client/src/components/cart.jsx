@@ -2,47 +2,40 @@ import { useEffect, useState } from "react";
 
 export default function Cart() {
 
-    const [cartId, setCartId] = useState([]);
     const [cartItems, setCartItems] = useState([]);
     const [products, setProducts] = useState([]);
+
+    const cartId = localStorage.getItem("cartId");
     
     const getProduct = async (id) => {
         const response = await fetch(`http://localhost:5000/products/${id}`);
         const data = await response.json();
         setProducts(products => [...products, data]);
-        console.log(products);
-    }
-
-    const getCartId = async () => {
-        const user_id = localStorage.getItem('user_id');
-        const response = await fetch(`http://localhost:5000/carts/mine/${user_id}`);
-        setCartId(await response.json());
     }
 
     const getCartItems = async () => {
-        console.log(cartId.id);
-        const response = await fetch(`http://localhost:5000/carts/items/${cartId.id}`);
+        const response = await fetch(`http://localhost:5000/carts/items/${cartId}`);
         const data = await response.json();
-        console.log(data);
         setCartItems(data)
     }
-
-    useEffect(() => {
-        getCartId();
-    }, [])
     
     useEffect(() => {
         getCartItems();
     }, [cartId]);
 
     useEffect(() => {
-        console.log(cartItems);
-        cartItems.map(async (item, idx) => {
-            console.log(item);
-            const product = await getProduct(item.id);
-            console.log(product);
-            setProducts(products => [...products, product]);
-        })
+        async function test() {
+            console.log("async func working")
+            // cartItems.map(async (item) => {
+            //     console.log(item);
+            //     const product = await getProduct(item.id);
+            //     console.log(product);
+            // })
+            for (const item of cartItems) {
+                getProduct(item.productid)
+            }
+        }
+        test();
     }, [cartItems]);
     
     return (
@@ -51,7 +44,8 @@ export default function Cart() {
 
             {products ? products.map((item, idx) => {
                 console.log(products);
-                let product = cartItems.find(cartItem => cartItem.id == item.id)
+                console.log(idx);
+                let product = cartItems.find(cartItem => cartItem.productid == item.id)
                 return (
                     <div className="cartItem" key={idx}>
                         <p>x{product.quantity}</p>

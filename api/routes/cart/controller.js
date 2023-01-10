@@ -9,11 +9,14 @@ const createCart = async (req, res) => {
         const date = new Date();
         date.toLocaleDateString('en-GB').split('-').join('');
 
-        const response = await pool.query(queries.createCart, [id, date, date]);
+        const response = await pool.query(queries.createCart, [id, date]);
 
-        res.status(200).send('Cart created');
+        console.log(response.rows[0].id);
+        
+        
+        res.status(200).send("Cart Created");
     } catch (err) {
-        console.error(err.message);
+        console.error("Create cart error: " + err.message);
     }
 }
 
@@ -28,7 +31,7 @@ const getCart = async (req, res) => {
         res.status(200).send(cart);
         
     } catch (err) {
-        console.error(err.message);
+        console.error("get cart error: " + err.message);
     }
 }
 
